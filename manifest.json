@@ -1,13 +1,14 @@
 {
   "manifest_version": 2,
 
-  "name": "Adblock",
+  "name": "SafeSurf",
   "description": "This extension blocks ads that have been known to serve malware.",
   "version": "0.1",
 
   "browser_action": {
     "default_icon": "icon.png",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_title": "AdBlock"
   },
   "permissions": [
     "activeTab",
