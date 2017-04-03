@@ -1,6 +1,5 @@
 # AdBlock
-AdBlock for Chrome
-Done for cybersecurity class. 
+AdBlock for Chrome. Blocks ads known to serce adware and malware. 
 
 Resources:
 https://developer.chrome.com/extensions/getstarted
