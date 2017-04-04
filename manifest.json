@@ -4,12 +4,18 @@
   "name": "AdBlock",
   "description": "This extension blocks ads that have been known to serve malware.",
   "version": "0.1",
-  
+
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html",
     "default_title": "AdBlock"
   },
+  "content_scripts": [
+   {
+     "matches": ["http://*/*", "https://*/*", "file://*/*"],
+     "js": ["background.js"]
+   }
+ ],
   "permissions": [
     "activeTab",
     "https://ajax.googleapis.com/"
