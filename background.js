@@ -3,15 +3,21 @@
 //later I plan on moving this to a global object that is persistend across
 //all pages, so we only load the file once
 
-readFile(chrome.runtime.getURL("adlist.txt"));
-//read list of domains to blocks
+
+function getAdList() {
+  var contents = readFile(chrome.runtime.getURL("adlist.txt"));
+  console.log('contents');
+  var adList = parseFile(contents);
+}
+
+//read file w/async
 function readFile(filepath) {
   var file = new XMLHttpRequest();
   file.open("GET", filepath, true);
   file.onload = function(e) {
     if (file.readyState === 4) {
-      if(file.status === 200) {
-        parseFile(file.responseText);
+      if(file.status === 200)
+        return file.responseText;
       } else {
         console.error(xhr.statusText);
       }
@@ -20,8 +26,9 @@ function readFile(filepath) {
   file.send(null);
 }
 
-function parseFile(file) {
-  console.log('file loaded');
+//walk through file building list of sources to block
+function parseFile(contents) {
+
 }
 
 //iterate through all links on page
