@@ -1,5 +1,5 @@
 # AdBlock
-AdBlock for Chrome. Blocks ads known to serve adware and malware.
+AdBlock for Chrome. Blocks ads known to serve adware and malware. Needs a better name.
 
 ## Resources:
 
