@@ -1,5 +1,10 @@
 # AdBlock
-AdBlock for Chrome. Blocks ads known to serve adware and malware. 
+AdBlock for Chrome. Blocks ads known to serve adware and malware.
 
-Resources:
+## Resources:
+
+### Extension Development
 https://developer.chrome.com/extensions/getstarted
+
+### List of Ad Domains
+https://pgl.yoyo.org/as/serverlist.php
