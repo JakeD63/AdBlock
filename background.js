@@ -1,3 +1,8 @@
+//start by loading in ad file
+//NOTE: right now, the file will get loaded each time you load a page
+//later I plan on moving this to a global object that is persistend across
+//all pages, so we only load the file once
+
 readFile(chrome.runtime.getURL("adlist.txt"));
 //read list of domains to blocks
 function readFile(filepath) {
@@ -16,7 +21,7 @@ function readFile(filepath) {
 }
 
 function parseFile(file) {
-  console.log(file);
+  console.log('file loaded');
 }
 
 //iterate through all links on page
