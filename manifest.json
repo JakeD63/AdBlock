@@ -13,8 +13,8 @@
   "content_scripts": [
    {
      "matches": ["http://*/*", "https://*/*", "file://*/*"],
-     "js": ["background.js"],
-     "run_at": "document_end"
+     "js": ["background.js"]
+
    }
  ],
  "web_accessible_resources": [

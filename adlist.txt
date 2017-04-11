@@ -789,7 +789,7 @@ adtoma.com
 adtrace.org
 adtrade.net
 adtrading.de
-127.1.0.1 adtrak.net
+adtrak.net
 adtriplex.com
 adultadvertising.com
 adv-adserver.com
@@ -1278,12 +1278,12 @@ doubleclick.net
 doublepimp.com
 drumcash.com
 dynamic.fmpub.net
-e-adimages.scrippsnetworks.com
-e-bannerx.com
-e-debtconsolidation.com
+adimages.scrippsnetworks.com
+bannerx.com
+debtconsolidation.com
 em.fr
 enternex.com
-e-planning.net
+planning.net
 e.kde.cz
 eadexchange.com
 eas.almamedia.fi
@@ -1512,7 +1512,6 @@ inetlog.ru
 infinite-ads.com
 infinityads.com
 infolinks.com
-information.com
 inringtone.com
 insightexpress.com
 insightexpressai.com
