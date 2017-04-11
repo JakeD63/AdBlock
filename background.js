@@ -1,9 +1,3 @@
-var meta = document.createElement('meta');
-meta.httpEquiv = "Content-Security-Policy";
-meta.content = "script-src 'self'";
-document.getElementsByTagName('head')[0].appendChild(meta);
-
-
 //start by loading in ad file
 //NOTE: right now, the file will get loaded each time you load a page
 //later I plan on moving this to a global object that is persistend across
@@ -51,6 +45,7 @@ function readFile(filepath, callback) {
 function removeAds(adList) {
   removeLinks(adList);
   removeImages(adList);
+  removeIns();
   console.log("Done Scraping");
 }
 
@@ -60,7 +55,6 @@ function removeLinks(adList) {
   for(var i = 0; i < l.length; i++) {
     for(var x in adList) {
       if(l[i].href.includes(adList[x])) {
-        console.log("Detected URL:" + (x) + ": " + l[i].href);
         l[i].parentNode.style.display = 'none';
       }
     }
@@ -74,9 +68,15 @@ function removeImages(adList) {
     console.log(images[i].src);
     for(var x in adList) {
       if(images[i].src.includes(adList[x])) {
-        console.log("Detected Img Src:" + (x) + ": " + l[i].href);
         l[i].style.display = 'none';
       }
     }
+  }
+}
+
+function removeIns() {
+  var insTags = document.getElementsByTagName('ins');
+  for(var i = 0; i < insTags.length; i++) {
+    insTags[i].style.display = 'none';
   }
 }
