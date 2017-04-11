@@ -13,6 +13,8 @@ function readAdList(filepath) {
     var adList = contents.split('\n');
     removeAds(adList);
   });
+  //TODO: call removeAds with user list
+  //here since user list does not rely on async
 }
 
 //read file w/async
@@ -30,19 +32,15 @@ function readFile(filepath, callback) {
   file.send(null);
 }
 
+//walks page removing any element with a source matching one from adList array
 function removeAds(adList) {
-  
-}
-
-//iterate through all links on page
-//if the link matches an ad, block it
-function test() {
   var links = [], l = document.links;
   for (var i = 0; i < l.length; i++) {
-    if(l[i].href.includes("ad")) {
-      console.log(l[i].href);
-      var parent = l[i].parentNode;
-      parent.style.display = 'none';
+    for (var x in adList) {
+      if(l[i].href.includes(adList[x])) {
+        l[i].parentNode.style.display = 'none';
+        console.log(x);
+      }
     }
   }
 }
