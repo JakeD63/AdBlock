@@ -13,3 +13,7 @@ https://pgl.yoyo.org/as/serverlist.php
 
 ### Site to Test With
 http://ads-blocker.com/google-chrome/
+
+
+### Note:
+Need to focus on preventing scripts from execuring, we cannot access iframe content since it is hosted on the ads domain
