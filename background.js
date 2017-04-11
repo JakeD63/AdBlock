@@ -46,6 +46,7 @@ function removeAds(adList) {
   removeLinks(adList);
   removeImages(adList);
   removeIns();
+  removeIFrames();
   console.log("Done Scraping");
 }
 
@@ -65,10 +66,9 @@ function removeLinks(adList) {
 function removeImages(adList) {
   var images = document.getElementsByTagName('img');
   for(var i = 0; i < images.length; i++) {
-    console.log(images[i].src);
     for(var x in adList) {
       if(images[i].src.includes(adList[x])) {
-        l[i].style.display = 'none';
+        images[i].style.display = 'none';
       }
     }
   }
@@ -78,5 +78,16 @@ function removeIns() {
   var insTags = document.getElementsByTagName('ins');
   for(var i = 0; i < insTags.length; i++) {
     insTags[i].style.display = 'none';
+  }
+}
+
+function removeIFrames() {
+  //hard coded for now
+  var iFrames = document.getElementsByTagName('iframe');
+  for(var i = 0; i < iFrames.length; i++) {
+    if(iFrames[i].id.includes("google_ads_iframe")) {
+      iFrames[i].style.display = 'none';
+      iFrames[i].parentNode.style.display = 'none';
+    }
   }
 }
