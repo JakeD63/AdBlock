@@ -4,31 +4,34 @@
 //all pages, so we only load the file once
 
 
-function getAdList() {
-  var contents = readFile(chrome.runtime.getURL("adlist.txt"));
-  console.log('contents');
-  var adList = parseFile(contents);
+readAdList(chrome.runtime.getURL("adlist.txt"));
+
+//gets adList and then calls routine to remove ads
+//after async call is finished
+function readAdList(filepath) {
+  readFile(filepath, function(contents) {
+    var adList = contents.split('\n');
+    removeAds(adList);
+  });
 }
 
 //read file w/async
-function readFile(filepath) {
+function readFile(filepath, callback) {
   var file = new XMLHttpRequest();
   file.open("GET", filepath, true);
   file.onload = function(e) {
     if (file.readyState === 4) {
       if(file.status === 200)
-        return file.responseText;
+        callback(file.responseText);
       } else {
         console.error(xhr.statusText);
       }
     }
-  }
   file.send(null);
 }
 
-//walk through file building list of sources to block
-function parseFile(contents) {
-
+function removeAds(adList) {
+  
 }
 
 //iterate through all links on page
