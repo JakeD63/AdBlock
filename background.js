@@ -3,6 +3,9 @@
 //later I plan on moving this to a global object that is persistend across
 //all pages, so we only load the file once
 
+//uncomment this to run scraper automatically
+//start();
+
 //recieve message from popup.js
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
   if(request.function === 'scrape') {
@@ -12,39 +15,9 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 
 function start() {
   readAdList(chrome.runtime.getURL("adlist.txt"), 4, removeAds);
-  
+
   //TODO: call removeAds with user list
   //here since user list does not rely on async
-}
-
-//gets adList and then calls routine to remove ads
-//after async call is finished
-function readAdList(filepath, cutoffLength, callback) {
-  readFile(filepath, function(contents) {
-    var adList = contents.split('\n');
-    //remove domain and urls that are way too short
-    for(var i in adList) {
-      //adList[i] = adList[i].substring(0, adList[i].lastIndexOf('.'));
-      if(adList[i].length <= cutoffLength)
-        adList.splice(i, 1);
-    }
-    callback(adList);
-  });
-}
-
-//read file w/async
-function readFile(filepath, callback) {
-  var file = new XMLHttpRequest();
-  file.open("GET", filepath, true);
-  file.onload = function(e) {
-    if (file.readyState === 4) {
-      if(file.status === 200)
-        callback(file.responseText);
-      } else {
-        console.error(xhr.statusText);
-      }
-    }
-  file.send(null);
 }
 
 function removeAds(adList) {
@@ -66,6 +39,7 @@ function removeLinks(adList) {
     }
   }
 }
+
 
 //remove images if their src contains an ad domain
 function removeImages(adList) {

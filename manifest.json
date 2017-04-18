@@ -13,14 +13,23 @@
   "content_scripts": [
    {
      "matches": ["http://*/*", "https://*/*", "file://*/*"],
-     "js": ["background.js"]
+     "js": ["getAdList.js", "background.js"]
 
    }
  ],
+ "background": {
+   "scripts": ["beforePageLoad.js"],
+   "persistent": true
+ },
  "web_accessible_resources": [
     "adlist.txt"
   ],
   "permissions": [
+    "<all_urls>",
+    "webRequest",
+    "webRequestBlocking",
+    "webNavigation",
+    "management",
     "activeTab",
     "https://ajax.googleapis.com/"
   ]
