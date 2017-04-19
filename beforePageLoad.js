@@ -1,3 +1,22 @@
+//block requests that match domain from ad list
+chrome.webRequest.onBeforeRequest.addListener( function(details) {
+  return {cancel: true};
+  },
+  {urls: urls},
+  ["blocking"]);
+
+//block all iframes
+
+chrome.webRequest.onBeforeRequest.addListener(function(details) {
+		alert("test");
+       return {cancel: true};
+}, {
+    urls: ['*://*/*'],
+    types: ['sub_frame']
+}, ['blocking']);
+
+//because we would have to load adlist.txt with async, its
+//way easier to do it this way, since the file is hard coded anyway
 var urls = ["*://101com.com/*",
 "*://101order.com/*",
 "*://123found.com/*",
@@ -2085,6 +2104,7 @@ var urls = ["*://101com.com/*",
 "*://t.pusk.ru/*",
 "*://taboola.com/*",
 "*://tacoda.net/*",
+"*://tag-dyn.omnitagjs.com/*",
 "*://tagular.com/*",
 "*://tailsweep.co.uk/*",
 "*://tailsweep.com/*",
@@ -2344,11 +2364,3 @@ var urls = ["*://101com.com/*",
 "*://zeusclicks.com/*",
 "*://zintext.com/*",
 "*://zmedia.com/*"];
-
-
-//block requests that are not fron the current domain
-chrome.webRequest.onBeforeRequest.addListener( function(details) {
-  return {cancel: true};
-  },
-  {urls: urls},
-  ["blocking"]);
