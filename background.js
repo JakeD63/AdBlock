@@ -10,6 +10,7 @@
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
   if(request.function === 'scrape') {
     start();
+    start();
   }
 });
 
@@ -34,7 +35,7 @@ function removeLinks(adList) {
   for(var i = 0; i < l.length; i++) {
     for(var x in adList) {
       if(l[i].href.includes(adList[x])) {
-        l[i].parentNode.style.display = 'none';
+        deleteElement(l[i]);
       }
     }
   }
@@ -47,7 +48,7 @@ function removeImages(adList) {
   for(var i = 0; i < images.length; i++) {
     for(var x in adList) {
       if(images[i].src.includes(adList[x])) {
-        images[i].style.display = 'none';
+        deleteElement(images[i]);
       }
     }
   }
@@ -56,17 +57,20 @@ function removeImages(adList) {
 function removeIns() {
   var insTags = document.getElementsByTagName('ins');
   for(var i = 0; i < insTags.length; i++) {
-    insTags[i].style.display = 'none';
+    deleteElement(insTags[i]);
   }
 }
 
 function removeIFrames() {
-  //hard coded for now
   var iFrames = document.getElementsByTagName('iframe');
   for(var i = 0; i < iFrames.length; i++) {
-    if(iFrames[i].id.includes("google_ads_iframe")) {
-      iFrames[i].style.display = 'none';
-      iFrames[i].parentNode.style.display = 'none';
-    }
+      deleteElement(iFrames[i]);
   }
+}
+
+//removes node element from page
+function deleteElement(element) {
+  element.outerHTML = "";
+  delete element;
+  //element.parentElement.removeChild(element);
 }
