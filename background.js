@@ -9,6 +9,7 @@
 //recieve message from popup.js
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
   if(request.function === 'scrape') {
+    //run twice because ads are shifty
     start();
     start();
   }
