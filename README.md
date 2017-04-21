@@ -15,6 +15,7 @@ https://pgl.yoyo.org/as/serverlist.php
 
 ### Site to Test With
 http://ads-blocker.com/google-chrome/
+http://www.leicestermercury.co.uk/ (super shitty refreshing ads)
 
 
 ### Note:
