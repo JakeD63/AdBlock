@@ -27,6 +27,8 @@ function removeAds(adList) {
   removeImages(adList);
   removeIns();
   removeIFrames();
+  removeNonMatchingImgTags(adList);
+
   console.log("Done Scraping");
 }
 
@@ -54,6 +56,31 @@ function removeImages(adList) {
     }
   }
 }
+
+
+//remove images if their src contains an ad domain
+function removeNonMatchingImgTags(adList) {
+	var imgtags = document.getElementsByTagName('img');
+
+	for(var i = 0; i < imgtags.length; i++) {
+		if(  !( imgtags[i].src.includes(getCurrentTabURL())  )  ) {
+			imgtags[i].style.display = 'none';
+		}
+  }
+}
+
+
+function getCurrentTabURL(){
+
+	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+	    var url = tabs[0].url;
+	});
+	return url;
+
+}
+
+
+
 
 function removeIns() {
   var insTags = document.getElementsByTagName('ins');
