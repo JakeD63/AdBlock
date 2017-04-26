@@ -19,4 +19,6 @@ http://www.leicestermercury.co.uk/ (super shitty refreshing ads)
 
 
 ### Note:
-Need to focus on preventing scripts from execuring, we cannot access iframe content since it is hosted on the ads domain
+Need to focus on preventing scripts from execuring, we cannot access iframe content since it is hosted on the ads domain.
+
+https://stackoverflow.com/questions/32533580/deleting-dom-elements-before-the-page-is-displayed-to-the-screen-in-a-chrome-ex
