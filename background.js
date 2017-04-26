@@ -27,7 +27,7 @@ function removeAds(adList) {
   removeImages(adList);
   removeIns();
   removeIFrames();
-  removeNonMatchingImgTags(adList);
+  //removeNonMatchingImgTags(adList);
 
   console.log("Done Scraping");
 }
