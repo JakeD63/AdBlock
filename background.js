@@ -3,9 +3,6 @@
 //later I plan on moving this to a global object that is persistend across
 //all pages, so we only load the file once
 
-//uncomment this to run scraper automatically
-//start();
-
 //recieve message from popup.js
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
   if(request.function === 'scrape') {
@@ -18,8 +15,6 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 function start() {
   readAdList(chrome.runtime.getURL("adlist.txt"), 4, removeAds);
 
-  //TODO: call removeAds with user list
-  //here since user list does not rely on async
 }
 
 function removeAds(adList) {
