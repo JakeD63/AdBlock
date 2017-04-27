@@ -1,8 +1,3 @@
-//start by loading in ad file
-//NOTE: right now, the file will get loaded each time you load a page
-//later I plan on moving this to a global object that is persistend across
-//all pages, so we only load the file once
-
 //recieve message from popup.js
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
   if(request.function === 'scrape') {
@@ -13,8 +8,7 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 });
 
 function start() {
-  readAdList(chrome.runtime.getURL("adlist.txt"), 4, removeAds);
-
+  removeAds(adArray);
 }
 
 function removeAds(adList) {
