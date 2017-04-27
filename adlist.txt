@@ -891,7 +891,6 @@ amung.us
 an.tacoda.net
 anahtars.com
 analytics.adpost.org
-analytics.google.com
 analytics.live.com
 analytics.yahoo.com
 anm.intelli-direct.com
@@ -1413,7 +1412,6 @@ go-clicks.de
 go-rank.de
 goingplatinum.com
 goldstats.com
-google-analytics.com
 googleadservices.com
 googlesyndication.com
 gostats.com
