@@ -1,13 +1,13 @@
-removeAds(adArray);
+document.addEventListener('DOMContentLoaded', function() {
+  removeAds(adArray);
+  removeAds(adArray);
+}, false);
 
 function removeAds(adList) {
   removeLinks(adList);
   removeImages(adList);
-  removeIns();
-  removeIFrames();
   removeNonMatchingImgTags(adList);
-
-  console.log("Done Scraping");
+  removeIns();
 }
 
 //walks page removing any element with a source matching one from adList array
@@ -47,30 +47,10 @@ function removeNonMatchingImgTags(adList) {
   }
 }
 
-
-function getCurrentTabURL(){
-
-	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-	    var url = tabs[0].url;
-	});
-	return url;
-
-}
-
-
-
-
 function removeIns() {
   var insTags = document.getElementsByTagName('ins');
   for(var i = 0; i < insTags.length; i++) {
     deleteElement(insTags[i]);
-  }
-}
-
-function removeIFrames() {
-  var iFrames = document.getElementsByTagName('iframe');
-  for(var i = 0; i < iFrames.length; i++) {
-      deleteElement(iFrames[i]);
   }
 }
 
