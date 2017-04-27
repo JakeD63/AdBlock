@@ -1,6 +1,5 @@
 var observer = new MutationObserver(parse);
 observer.observe(document, {subtree:true, childList:true});
-document.addEventListener('DOMContentLoaded', function() { observer.disconnect() });
 
 function parse(mutations) {
 	//call scrape routine in case callback returns after partial DOM load
@@ -33,16 +32,21 @@ function scrapeIFrame(node) {
 }
 	
 function scrapeScript(node) {
+
 	//in content script, so we can do this
 	var url = window.location.href;
 	var src = node.src.toLowerCase();
 	//check if url is OK
 	//look through adArray for matching src
 	for(var i = 0; i < adArray.length; i++) {
-		if(src.includes(adArray[i]))
+		if(src.includes(adArray[i])) {
 			deleteElement(node);
+		}
+		//scan script content if its in page
+		if(node.innerHTML.includes(adArray[i])) {
+			deleteElement(node);
+		}
 	}
-	
 }
 
 
