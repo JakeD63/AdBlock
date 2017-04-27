@@ -1,5 +1,5 @@
 {
-  "manifest_version": 1,
+  "manifest_version": 2,
 
   "name": "AdBlock",
   "description": "This extension blocks ads that have been known to serve malware.",
