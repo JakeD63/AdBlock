@@ -33,13 +33,20 @@ function scrapeIFrame(node) {
 }
 	
 function scrapeScript(node) {
-	deleteElement(node);
+	//in content script, so we can do this
+	var url = window.location.href;
+	var src = node.src.toLowerCase();
+	//check if url is OK
+	//look through adArray for matching src
+	for(var i = 0; i < adArray.length; i++) {
+		if(src.includes(adArray[i]))
+			deleteElement(node);
+	}
+	
 }
 
 
 //removes node element from page
 function deleteElement(element) {
-  element.outerHTML = "";
-  delete element;
-  //element.parentElement.removeChild(element);
+  element.parentNode.removeChild();
 }
