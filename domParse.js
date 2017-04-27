@@ -32,7 +32,6 @@ function scrapeIFrame(node) {
 }
 	
 function scrapeScript(node) {
-
 	//in content script, so we can do this
 	var src = node.src.toLowerCase();
 	//check if url is OK
@@ -47,7 +46,6 @@ function scrapeScript(node) {
 		}
 	}
 }
-
 
 //removes node element from page
 function deleteElement(element) {
