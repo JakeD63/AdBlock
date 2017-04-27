@@ -19,9 +19,6 @@
 
    }
  ],
- "web_accessible_resources": [
-    "adlist.txt"
-  ],
   "permissions": [
     "<all_urls>",
     "*://*/*",
