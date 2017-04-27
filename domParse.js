@@ -37,11 +37,7 @@ function scrapeScript(node) {
 	//check if url is OK
 	//look through adArray for matching src
 	for(var i = 0; i < adArray.length; i++) {
-		if(src.includes(adArray[i])) {
-			deleteElement(node);
-		}
-		//scan script content if its in page
-		if(node.innerHTML.includes(adArray[i])) {
+		if(src.includes(adArray[i]) || node.innerHTML.includes(adArray[i])) {
 			deleteElement(node);
 		}
 	}
