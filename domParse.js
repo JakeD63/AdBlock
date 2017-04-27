@@ -34,7 +34,6 @@ function scrapeIFrame(node) {
 function scrapeScript(node) {
 
 	//in content script, so we can do this
-	var url = window.location.href;
 	var src = node.src.toLowerCase();
 	//check if url is OK
 	//look through adArray for matching src
