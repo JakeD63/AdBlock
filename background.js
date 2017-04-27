@@ -22,7 +22,7 @@ function removeAds(adList) {
   removeImages(adList);
   removeIns();
   removeIFrames();
-  //removeNonMatchingImgTags(adList);
+  removeNonMatchingImgTags(adList);
 
   console.log("Done Scraping");
 }
@@ -58,7 +58,7 @@ function removeNonMatchingImgTags(adList) {
 	var imgtags = document.getElementsByTagName('img');
 
 	for(var i = 0; i < imgtags.length; i++) {
-		if(  !( imgtags[i].src.includes(getCurrentTabURL())  )  ) {
+		if(!(imgtags[i].src.includes(window.location.href))) {
 			imgtags[i].style.display = 'none';
 		}
   }
@@ -93,7 +93,5 @@ function removeIFrames() {
 
 //removes node element from page
 function deleteElement(element) {
-  element.outerHTML = "";
-  delete element;
-  //element.parentElement.removeChild(element);
+  element.parentElement.removeChild(element);
 }
