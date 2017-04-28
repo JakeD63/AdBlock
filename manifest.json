@@ -4,9 +4,10 @@
   "name": "AdBlock",
   "description": "This extension blocks ads that have been known to serve malware.",
   "version": "0.1",
-
+  "icons": { "16": "shield_16.png",
+           "64": "shield_64.png",
+          "128": "shield_128.png" },
   "browser_action": {
-    "default_icon": "icon.png",
     "default_popup": "popup.html",
     "default_title": "AdBlock"
   },
