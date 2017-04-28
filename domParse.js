@@ -1,4 +1,4 @@
-chrome.storage.sync.get('disable', function(response) {
+chrome.storage.sync.get(['disable', 'whitelist'], function(response) {
 		if(!response.disable) {
 			var observer = new MutationObserver(parse);
 			observer.observe(document, {subtree:true, childList:true});

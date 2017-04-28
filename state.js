@@ -1,10 +1,17 @@
 //on page load, check state of disable checkbox
 document.addEventListener('DOMContentLoaded', init, false);
 var disableCheck, whitelistCheck;
+var url;
 
 function init() {
 	disableHandler();
-	whitelistHandler();
+		//need url for whitelist handling
+		chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+		//get base url
+		var pathArray = tabs[0].url.split( '/' );
+		url = pathArray[0] + '//' + pathArray[2];
+		whitelistHandler(url);
+	});
 }
 
 function disableHandler() {
@@ -29,26 +36,40 @@ function toggleDisable() {
 function whitelistHandler() {
 	whitelistCheck = document.getElementById('whitelist');
 	whitelistCheck.addEventListener("click", toggleWhitelist);
-	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-		//get base url
-		var pathArray = tabs[0].url.split( '/' );
-		var url = pathArray[0] + '//' + pathArray[2];
-    	chrome.storage.sync.get('whitelist', function(response) {
+	chrome.storage.sync.get('whitelist', function(response) {
+		if(response.whitelist) {
 			for(var i = 0; i < response.whitelist.length; i++) {
-				if(response.whitelist[i] == url)
+				if(response.whitelist[i] == url) {
 					whitelistCheck.checked = true;
+					break;
+				}
 				else
 					whitelistCheck.checked = false;
 			}
-		});
+		} else
+			whitelistCheck.checked = false;
 	});
-	
 }
 
 function toggleWhitelist() {
-	if(whitelistCheck.checked) {
-		//add to whitelist
-	} else {
-		//remove from whitelist
-	}
+	chrome.storage.sync.get('whitelist', function(response) {
+		if(response.whitelist) {
+			if(whitelistCheck.checked) {
+				response.whitelist.push(url);
+			} else {
+				var found = response.whitelist.indexOf(url);
+	    		while (found !== -1) {
+	        		response.whitelist.splice(found, 1);
+	        		found = response.whitelist.indexOf(url);
+	    		}
+			}
+			chrome.storage.sync.set({'whitelist': response.whitelist});
+		} else {
+			if(whitelistCheck.checked) {
+				var list = [];
+				list.push(url);
+				chrome.storage.sync.set({'whitelist': list});
+			}
+		}
+	});
 }
