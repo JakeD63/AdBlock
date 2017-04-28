@@ -1,10 +1,24 @@
 chrome.storage.sync.get(['disable', 'whitelist'], function(response) {
-		if(!response.disable) {
-			var observer = new MutationObserver(parse);
-			observer.observe(document, {subtree:true, childList:true});
-		}
-	});
+	//if extension is not disabled
+	if(!response.disable) {
+		//if whitelist is not empty
+		if(response.whitelist) {
+			//get base url
+			var pathArray = window.location.href.split( '/' );
+			var url = pathArray[0] + '//' + pathArray[2];
+			if(response.whitelist.indexOf(url) == -1) {
+				parse_init();
+			}
+		//else if whitelist is empty
+		} else 
+			parse_init();	
+	}
+});
 
+function parse_init() {
+	var observer = new MutationObserver(parse);
+	observer.observe(document, {subtree:true, childList:true});
+}
 
 function parse(mutations) {
 	//call scrape routine in case callback returns after partial DOM load
@@ -46,9 +60,4 @@ function scrapeScript(node) {
 			deleteElement(node);
 		}
 	}
-}
-
-//removes node element from page
-function deleteElement(element) {
-  element.parentNode.removeChild();
 }

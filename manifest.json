@@ -13,7 +13,7 @@
   "content_scripts": [
    {
      "matches": ["http://*/*", "https://*/*", "file://*/*"],
-     "js": ["adArray.js", "domParse.js", "background.js"],
+     "js": ["adArray.js", "helper.js", "domParse.js", "background.js"],
      "run_at": "document_start",
      "all_frames": true
 
