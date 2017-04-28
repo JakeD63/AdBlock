@@ -24,7 +24,6 @@ function bg_init() {
 function removeAds(adList) {
     removeLinks(adList);
     removeImages(adList);
-    removeNonMatchingImgTags(adList);
     removeIns();
 }
 
@@ -53,18 +52,6 @@ function removeImages(adList) {
             if (images[i].src.includes(adList[x])) {
                 deleteElement(images[i]);
             }
-        }
-    }
-}
-
-
-//remove images if their src contains an ad domain
-function removeNonMatchingImgTags(adList) {
-    var imgtags = document.getElementsByTagName('img');
-
-    for (var i = 0; i < imgtags.length; i++) {
-        if (!(imgtags[i].src.includes(window.location.href))) {
-            imgtags[i].style.display = 'none';
         }
     }
 }
