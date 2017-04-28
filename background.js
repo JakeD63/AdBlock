@@ -1,3 +1,9 @@
+//FILE: background.js
+//this scrapes static elements from the page
+//most pages do not use static elements, but rather
+//use scripts to load ads, but it doesn't hurt to
+//look anyway
+
 chrome.storage.sync.get(['disable', 'whitelist'], function(response) {
     //if extension is not disabled
     if (!response.disable) {
@@ -15,12 +21,14 @@ chrome.storage.sync.get(['disable', 'whitelist'], function(response) {
     }
 });
 
+//add the listener for scrapign on page load
 function bg_init() {
     document.addEventListener('DOMContentLoaded', function() {
         removeAds(adArray);
     }, false);
 }
 
+//scrapes page on dom load for static images and links
 function removeAds(adList) {
     removeLinks(adList);
     removeImages(adList);
