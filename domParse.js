@@ -1,5 +1,10 @@
-var observer = new MutationObserver(parse);
-observer.observe(document, {subtree:true, childList:true});
+chrome.storage.sync.get('disable', function(response) {
+		if(!response.disable) {
+			var observer = new MutationObserver(parse);
+			observer.observe(document, {subtree:true, childList:true});
+		}
+	});
+
 
 function parse(mutations) {
 	//call scrape routine in case callback returns after partial DOM load

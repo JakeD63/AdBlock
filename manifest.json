@@ -27,6 +27,7 @@
     "webNavigation",
     "management",
     "activeTab",
+    "storage",
     "https://ajax.googleapis.com/"
   ]
 }

@@ -1,7 +1,12 @@
-document.addEventListener('DOMContentLoaded', function() {
-  removeAds(adArray);
-  removeAds(adArray);
-}, false);
+chrome.storage.sync.get('disable', function(response) {
+    if(!response.disable) {
+      document.addEventListener('DOMContentLoaded', function() {
+        removeAds(adArray);
+        removeAds(adArray);
+        }, false);
+    }
+  });
+
 
 function removeAds(adList) {
   removeLinks(adList);
