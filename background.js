@@ -7,15 +7,15 @@ chrome.storage.sync.get(['disable', 'whitelist'], function(response) {
             var pathArray = window.location.href.split('/');
             var url = pathArray[0] + '//' + pathArray[2];
             if (response.whitelist.indexOf(url) == -1) {
-                scrape_init();
+                bg_init();
             }
             //else if whitelist is empty
         } else
-            scrape_init();
+            bg_init();
     }
 });
 
-function scrape_init() {
+function bg_init() {
     document.addEventListener('DOMContentLoaded', function() {
         removeAds(adArray);
     }, false);
