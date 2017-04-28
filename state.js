@@ -10,7 +10,7 @@ function init() {
 		//get base url
 		var pathArray = tabs[0].url.split( '/' );
 		url = pathArray[0] + '//' + pathArray[2];
-		whitelistHandler(url);
+		whitelistHandler();
 	});
 }
 
