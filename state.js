@@ -1,6 +1,6 @@
 //on page load, check state of disable checkbox
 document.addEventListener('DOMContentLoaded', init, false);
-var disableCheck;
+var disableCheck, whitelistCheck;
 
 function init() {
 	//add listener for checkbox (no inline js allowed)
