@@ -44,21 +44,10 @@ function parse(mutations) {
 }
 
 //send node to appropriate handler
+//this exists for adding functionality later
 function scrapeNode(node) {
-    //switch based on node.tagName
-    switch (node.tagName) {
-        case 'SCRIPT':
-            scrapeScript(node);
-            break;
-        case "IFRAME":
-            scrapeIFrame(node);
-            break;
-    }
-}
-
-//remove an iFrame
-function scrapeIFrame(node) {
-    deleteElement(node);
+    if(node.tagName == "SCRIPT")
+        scrapeScript(node);
 }
 
 //remove script if in our array
