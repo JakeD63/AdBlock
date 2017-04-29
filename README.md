@@ -3,6 +3,8 @@ This extension blocks ads from knows sources. Once installed, it will begin bloc
 There are two options, disable the extension, and add current domain to the whitelist.
 Sites on the whitelist will not have ads blocked.
 
+For information about usage and installation, read the User Manual.
+
 
 ## Resources:
 
