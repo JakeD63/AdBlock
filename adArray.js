@@ -1,3 +1,5 @@
+//array of domains known to serve ads and tracking scripts
+//this was taken from https://pgl.yoyo.org/as/serverlist.php
 var adArray = ["101com.com",
 "101order.com",
 "123found.com",
