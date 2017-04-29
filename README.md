@@ -1,5 +1,8 @@
-# AdBlock
-AdBlock for Chrome. Blocks ads known to serve adware and malware. Needs a better name.
+# Blocky McBlockface
+This extension blocks ads from knows sources. Once installed, it will begin blocking.
+There are two options, disable the extension, and add current domain to the whitelist.
+Sites on the whitelist will not have ads blocked.
+
 
 ## Resources:
 
