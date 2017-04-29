@@ -13,4 +13,4 @@ AdBlock for Chrome. Blocks ads known to serve adware and malware. Needs a better
 
 ### Site to Test With
 - http://ads-blocker.com/google-chrome/
-- http://www.leicestermercury.co.uk/ (super shitty refreshing ads)
+- http://www.leicestermercury.co.uk/ (site with lots of refresing ads)
