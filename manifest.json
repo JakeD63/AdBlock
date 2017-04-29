@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "AdBlock",
+  "name": "Blocky McBlockface",
   "description": "This extension blocks ads that have been known to serve malware.",
   "version": "0.1",
   "icons": { "16": "icons/shield_16.png",

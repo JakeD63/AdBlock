@@ -64,6 +64,9 @@ function removeImages(adList) {
     }
 }
 
+//removes insert tags
+//these sometimes get injected into a page
+//or used as a container for ads
 function removeIns() {
     var insTags = document.getElementsByTagName('ins');
     for (var i = 0; i < insTags.length; i++) {
